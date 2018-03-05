@@ -19,7 +19,7 @@ use Drupal\serialization\EntityResolver\EntityResolverInterface;
 /**
  * Embeds Paragraphs reference item into entity.
  */
-class JsonapiEmbedEntityReferenceFieldNormalizer extends EntityReferenceFieldNormalizer {
+class EmbedEntityReferenceFieldNormalizer extends EntityReferenceFieldNormalizer {
 
   /**
    * The interface or class that this Normalizer supports.

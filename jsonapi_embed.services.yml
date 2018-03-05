@@ -1,6 +1,6 @@
 services:
   serializer.normalizer.entity_reference_field.jsonapi_embed:
-    class: Drupal\jsonapi_embed\Normalizer\JsonapiEmbedEntityReferenceFieldNormalizer
+    class: Drupal\jsonapi_embed\Normalizer\EmbedEntityReferenceFieldNormalizer
     arguments: ['@jsonapi.link_manager', '@entity_field.manager', '@plugin.manager.field.field_type', '@jsonapi.resource_type.repository', '@entity.repository', '@serializer.normalizer.entity.jsonapi', '@serializer.entity_resolver']
     tags:
-      - { name: jsonapi_embed_do_not_use_removal_imminent, priority: 50 }
+      - { name: jsonapi_normalizer_do_not_use_removal_imminent, priority: 50 }
