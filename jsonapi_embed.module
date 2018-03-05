@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Adds support for embedding referenced entities in JSONAPI responses.
+ */
+
+use Drupal\Core\Field\EntityReferenceFieldItemList;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function jsonapi_embed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.jsonapi_embed':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module adds support for embedding reference entities into serialized entities for JSONAPI.</p>');
+
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function jsonapi_embed_form_field_config_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var Drupal\field\Entity\FieldConfig $field */
+  $field = $form_state->getFormObject()->getEntity();
+  $field_item_list = $form['#entity']->get($field->getName());
+
+  // Limit this alter to Entity Reference fields only.
+  if (!$field_item_list instanceof EntityReferenceFieldItemList) {
+    return;
+  }
+
+  $form['third_party_settings']['jsonapi_embed'] = [
+    '#type' => 'details',
+    '#title' => t('JSONAPI EntityReference Normalizer settings'),
+    '#open' => TRUE,
+  ];
+
+  $form['third_party_settings']['jsonapi_embed']['embedded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Render entity in JSON API as embedded'),
+    '#description' => t('Checking this box will render fully rasterized entity in JSON API, otherwise it will render it as reference'),
+    '#default_value' => $field->getThirdPartySetting('jsonapi_embed', 'embedded'),
+  ];
+}

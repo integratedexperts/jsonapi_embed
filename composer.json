@@ -1,0 +1,36 @@
+{
+    "name": "integratedexperts/jsonapi_embed",
+    "type": "drupal-module",
+    "description": "Adds support for embedding referenced entities in JSONAPI responses.",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "headless",
+        "decoupled",
+        "jsonapi",
+        "rest"
+    ],
+    "authors": [
+        {
+            "name": "Alex Skrypnyk",
+            "email": "alex.designworks@gmail.com"
+        },
+        {
+            "name": "Andrey Maximov",
+            "email": "savagge@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/integratedexperts/jsonapi_embed/issues",
+        "source": "https://github.com/integratedexperts/jsonapi_embed"
+    },
+    "require": {
+        "drupal/core": "~8"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+        "drupal/coder": "^8.2"
+    },
+    "scripts": {
+        "cs": "phpcs --colors"
+    }
+}

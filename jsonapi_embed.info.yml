@@ -1,0 +1,7 @@
+name: JSON API Embed
+type: module
+description: Embeds Entity Reference fields into entity when normalizing in JSON API response.
+package: Web services
+core: 8.x
+dependencies:
+  - jsonapi:jsonapi

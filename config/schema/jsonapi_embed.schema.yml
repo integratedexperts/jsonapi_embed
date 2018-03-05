@@ -1,0 +1,10 @@
+field.field.*.*.*.third_party.jsonapi_embed:
+  type: jsonapi_embed.third_party_settings
+
+jsonapi_embed.third_party_settings:
+  type: mapping
+  label: 'JSONAPI embed field config'
+  mapping:
+    embedded:
+      type: boolean
+      label: 'Embed entity'

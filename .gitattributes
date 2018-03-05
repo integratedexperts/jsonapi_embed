@@ -1,0 +1,7 @@
+# Ignore files for distribution archives.
+
+.gitattributes            export-ignore
+.gitignore                export-ignore
+.circle                   export-ignore
+composer.lock             export-ignore
+phpcs.xml                 export-ignore
